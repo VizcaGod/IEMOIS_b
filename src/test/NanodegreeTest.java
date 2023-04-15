@@ -1,11 +1,12 @@
 package test;
-import domain.*;
 
-
-import static org.junit.Assert.*;
+import domain.Course;
+import domain.IEMOISException;
+import domain.Nanodegree;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 
 public class NanodegreeTest{
@@ -76,5 +77,12 @@ public class NanodegreeTest{
             assertEquals(IEMOISException.WEEKS_EMPTY,e.getMessage());
         }    
     }  
-    
+
+    @Test
+    public void shouldNotRepeatCourse(){
+        Nanodegree t = new Nanodegree("FULL STACK DEVELOPER");
+        t.addCourse(new Course("FUNDAMENTS"),2);
+        t.addCourse(new Course("FRONT-END PROGRAMMING"),2);
+        t.addCourse(new Course("BACK-END PROGRAMMING"),2);
+    }
 }

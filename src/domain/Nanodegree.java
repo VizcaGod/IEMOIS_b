@@ -11,7 +11,7 @@ public class Nanodegree extends Program{
     /**
      * Constructs a new nanodegree
      * @param name 
-     * @param discount 
+     * @param projectWeeks
      */
     public Nanodegree(String name, int projectWeeks){
         this.name=name;
@@ -33,7 +33,9 @@ public class Nanodegree extends Program{
     @Override
     public int weeks() throws IEMOISException{
         int res = 0;
-       if ((Integer)projectWeeks == null) throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
+       if ((Integer)projectWeeks == null) {
+           throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
+       }
        if (projectWeeks < 1) throw new IEMOISException(IEMOISException.WEEKS_ERROR);
        for(Course a: courses){
             res += a.weeks();

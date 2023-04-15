@@ -10,10 +10,13 @@ package domain;
 public class IEMOISException extends Exception
 {
     // instance variables - replace the example below with your own
-    static final String WEEKS_EMPTY = "Hay una semana vacia";
-    static final String WEEKS_ERROR = "Hay errores en las semanas";
-    static final String NANO_EMPTY = "Nano esta vacio";
-    static final String IMPOSSIBLE = "Imposible de calcular";
+    public static final String WEEKS_EMPTY = "Hay una semana vacia";
+    public static final String WEEKS_ERROR = "Hay errores en las semanas";
+    public static final String NANO_EMPTY = "Nano esta vacio";
+    public static final String IMPOSSIBLE = "Imposible de calcular";
+    public static final String NAME_ERROR = "Ese curso ya existe";
+
+
     /**
      * Constructor for objects of class EIMOISException
      * @Param message

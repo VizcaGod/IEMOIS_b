@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=IEMOISException
+comment0.text=\r\n\ exception\ class\ for\ IEMOIS.\r\n\r\n\ @author\ Santiago\ Parra\ /\ Juan\ Vizcaino\r\n\ @version\ 1.0v\r\n
+comment1.params=message
+comment1.target=IEMOISException(java.lang.String)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ EIMOISException\r\n\ @Param\ message\r\n
+numComments=2
