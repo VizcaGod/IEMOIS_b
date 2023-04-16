@@ -25,7 +25,15 @@ public class Nanodegree extends Program{
      * @param c
      */   
     public void addCourse(Course c){
-        courses.add(c);
+        if (courses.contains(c)){
+            try {
+                throw new IEMOISException(IEMOISException.NAME_ERROR);
+            } catch (IEMOISException e) {
+                throw new RuntimeException(e);
+            }
+        }else {
+            courses.add(c);
+        }
     }
        
  
@@ -33,10 +41,9 @@ public class Nanodegree extends Program{
     @Override
     public int weeks() throws IEMOISException{
         int res = 0;
-       if ((Integer)projectWeeks == null) {
-           throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
-       }
+       if ((Integer)projectWeeks == null) throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
        if (projectWeeks < 1) throw new IEMOISException(IEMOISException.WEEKS_ERROR);
+       if (courses.isEmpty()) throw new IEMOISException(IEMOISException.NANO_EMPTY);
        for(Course a: courses){
             res += a.weeks();
         }

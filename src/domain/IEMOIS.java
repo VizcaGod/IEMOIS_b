@@ -61,17 +61,8 @@ public class IEMOIS{
     */
     public void addCourse(String name, String price){ 
         Course nc=new Course(name,Integer.parseInt(price));
-        if (programs.contains(name)){
-            try {
-                throw new IEMOISException(IEMOISException.NAME_ERROR);
-            } catch (IEMOISException e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            programs.add(nc);
-            courses.put(name.toUpperCase(),nc);
-        }
-
+        programs.add(nc);
+        courses.put(name.toUpperCase(),nc);
     }
     
     /**
