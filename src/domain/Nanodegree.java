@@ -41,14 +41,15 @@ public class Nanodegree extends Program{
     @Override
     public int weeks() throws IEMOISException{
         int res = 0;
-       if ((Integer)projectWeeks == null) throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
-       if (projectWeeks < 1) throw new IEMOISException(IEMOISException.WEEKS_ERROR);
-       if (courses.isEmpty()) throw new IEMOISException(IEMOISException.NANO_EMPTY);
-       for(Course a: courses){
+        if ((Integer)projectWeeks == null) throw new IEMOISException(IEMOISException.WEEKS_EMPTY);
+        if (projectWeeks < 1) throw new IEMOISException(IEMOISException.WEEKS_ERROR);
+        if (courses.isEmpty()) throw new IEMOISException(IEMOISException.NANO_EMPTY);
+        for(Course a: courses){
             res += a.weeks();
         }
-       return res + projectWeeks;
+        return res + projectWeeks;
     }
+
     /**
      * Calculates an estimate of weeks
      * For courses where the weeks cannot be known or has error, the max, min or avg  of the known courses is assumed
