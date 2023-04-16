@@ -6,10 +6,10 @@ import java.util.HashMap;
 
 /**
  * IEMOIS
- * @author POOB  
+ *
+ * @author POOB
  * @version ECI 2022
  */
-
 public class IEMOIS{
     private LinkedList<Program> programs;
     private HashMap<String,Course> courses;
@@ -41,8 +41,9 @@ public class IEMOIS{
 
     /**
      * Consult a program
-     * @param name
-     * @return 
+     *
+     * @param name the name
+     * @return program
      */
     public Program consult(String name){
         Program p=null;
@@ -53,25 +54,27 @@ public class IEMOIS{
         return p;
     }
 
-    
+
     /**
      * Add a new course
-     * @param name 
-     * @param price
-    */
-    public void addCourse(String name, String price){ 
+     *
+     * @param name  the name
+     * @param price the price
+     */
+    public void addCourse(String name, String price){
         Course nc=new Course(name,Integer.parseInt(price));
         programs.add(nc);
         courses.put(name.toUpperCase(),nc);
     }
-    
+
     /**
      * Add a new Nanodegree
-     * @param name 
-     * @param projectWeeks
-     * @param courses
-    */
-    public void addNanodegree(String name, String projectWeeks, String courses){ 
+     *
+     * @param name         the name
+     * @param projectWeeks the project weeks
+     * @param courses      the courses
+     */
+    public void addNanodegree(String name, String projectWeeks, String courses){
         Nanodegree s = new Nanodegree(name,Integer.parseInt(projectWeeks));
         String [] aCourses= courses.split("\n");
         for (String p : aCourses){
@@ -83,8 +86,9 @@ public class IEMOIS{
 
     /**
      * Consults the programs that start with a prefix
-     * @param  
-     * @return 
+     *
+     * @param prefix the prefix
+     * @return linked list
      */
     public LinkedList<Program> select(String prefix){
         LinkedList <Program> answers=null;
@@ -98,11 +102,11 @@ public class IEMOIS{
     }
 
 
-    
     /**
      * Consult selected programs
-     * @param selected
-     * @return  
+     *
+     * @param selected the selected
+     * @return string
      */
     public String data(LinkedList<Program> selected){
         StringBuffer answer=new StringBuffer();
@@ -117,13 +121,14 @@ public class IEMOIS{
         }    
         return answer.toString();
     }
-    
-    
-     /**
+
+
+    /**
      * Return the data of programs with a prefix
-     * @param prefix
-     * @return  
-     */ 
+     *
+     * @param prefix the prefix
+     * @return string
+     */
     public String search(String prefix){
         return data(select(prefix));
     }
@@ -136,10 +141,11 @@ public class IEMOIS{
     public String toString(){
         return data(programs);
     }
-    
+
     /**
      * Consult the number of Programs
-     * @return 
+     *
+     * @return int
      */
     public int numberPrograms(){
         return programs.size();

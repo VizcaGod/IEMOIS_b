@@ -1,9 +1,18 @@
-package domain;  
+package domain;
 
+/**
+ * The type Course.
+ */
 public class Course extends Program{
     
     private Integer weeks;
-    
+
+    /**
+     * Instantiates a new Course.
+     *
+     * @param name  the name
+     * @param weeks the weeks
+     */
     public Course(String name, Integer weeks){
         this.name=name;
         this.weeks=weeks;

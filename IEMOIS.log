@@ -1,0 +1,5 @@
+abr 15, 2023 10:18:43 P. M. domain.Log record
+SEVERE: java.lang.Exception: Test
+java.lang.Exception: Test
+	at domain.Log.main(Log.java:37)
+

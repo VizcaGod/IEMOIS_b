@@ -6,9 +6,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.io.IOException;
 import java.util.*;
 
 /**
+ * The type Iemoisgui.
+ *
  * @version ECI 2020
  */
 public class IEMOISGUI extends JFrame{
@@ -201,7 +204,7 @@ public class IEMOISGUI extends JFrame{
         /*Add*/
         buttonAdd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev){
-                actionAdd();                    
+                actionAdd();
             }
         });
         
@@ -251,10 +254,19 @@ public class IEMOISGUI extends JFrame{
             answer = programs.search(patronBusqueda);
         }
         textResults.setText(answer);
-    } 
-    
-   public static void main(String args[]){
-       IEMOISGUI gui=new IEMOISGUI();
-       gui.setVisible(true);
+    }
+
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
+    public static void main(String args[]){
+
+        IEMOISGUI gui=new IEMOISGUI();
+        gui.setVisible(true);
+
+
+
    }    
 }

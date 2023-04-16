@@ -2,16 +2,20 @@ package domain;
  
 import java.util.ArrayList;
 
+/**
+ * The type Nanodegree.
+ */
 public class Nanodegree extends Program{
    
 
     private int projectWeeks;    
     private ArrayList<Course> courses;
-    
+
     /**
      * Constructs a new nanodegree
-     * @param name 
-     * @param projectWeeks
+     *
+     * @param name         the name
+     * @param projectWeeks the project weeks
      */
     public Nanodegree(String name, int projectWeeks){
         this.name=name;
@@ -20,16 +24,18 @@ public class Nanodegree extends Program{
     }
 
 
-     /**
+    /**
      * Add a new course
-     * @param c
-     */   
+     *
+     * @param c the c
+     */
     public void addCourse(Course c){
         if (courses.contains(c)){
             try {
                 throw new IEMOISException(IEMOISException.NAME_ERROR);
             } catch (IEMOISException e) {
                 throw new RuntimeException(e);
+
             }
         }else {
             courses.add(c);
@@ -53,8 +59,9 @@ public class Nanodegree extends Program{
     /**
      * Calculates an estimate of weeks
      * For courses where the weeks cannot be known or has error, the max, min or avg  of the known courses is assumed
-     * @param type (max,min,avg) 
-     * @return 
+     *
+     * @param type (max,min,avg)
+     * @return int
      * @throws IEMOISException NANO_EMPTY, if it don't have courses. IMPOSSIBLE, if it can't be calculated
      */
     public int weeks(String type) throws IEMOISException{
@@ -77,17 +84,19 @@ public class Nanodegree extends Program{
             }catch (IEMOISException e) {
                 courses.set(pos ,  new Course( courses.get(pos).name() , res));
                 weeks(type);
+                Log.record(e);
             }
         return res;
         
-    }   
-    
-    
-     /**
+    }
+
+
+    /**
      * Calculates an estimate of weeks
      * For courses where the weeks cannot be known, unknown is assumed
-     * @param unknown 
-     * @return 
+     *
+     * @param unknown the unknown
+     * @return int
      * @throws IEMOISException NANO_EMPTY, if it don't have courses. WEEKS_ERROR, if some course has error
      */
     public int weeks(int unknown) throws IEMOISException{
@@ -104,6 +113,8 @@ public class Nanodegree extends Program{
                 } 
                 courses.set(pos ,  new Course( courses.get(pos).name() , unknown));
                 weeks(unknown);
+                Log.record(e);
+
             }
         return res;
     } 

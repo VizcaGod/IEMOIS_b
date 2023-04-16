@@ -6,11 +6,19 @@ import java.util.logging.SimpleFormatter;
 import java.util.logging.Level;
 
 /**
- * 
+ * The type Log.
  */
 public class Log{
+    /**
+     * The constant nombre.
+     */
     public static String nombre="IEMOIS";
-    
+
+    /**
+     * Record.
+     *
+     * @param e the e
+     */
     public static void record(Exception e){
         try{
             Logger logger=Logger.getLogger(nombre);
@@ -25,5 +33,6 @@ public class Log{
             System.exit(0);
         }
     }
+
 }
     
